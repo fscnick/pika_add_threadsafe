@@ -4,9 +4,14 @@ Test one connection and multiple channels with Pika. Related issue [Using one co
 
 ## Usage
 
-Run rabbitmq: `./scripts/run_rabbitmq.sh`
+1. Run rabbitmq: `./scripts/run_rabbitmq.sh`
 
-Run python script `src/main.py` directly. Or build docker `./scripts/build_python.sh` and `./scripts/run_python.sh`.
+2. Run python script `src/main.py` directly. Or build docker `./scripts/build_python.sh` and `./scripts/run_python.sh`.
+
+## Result
+
+* Test 100000 messages with `NO_ACK` is `True`. 
+* Test 80000 messages with `NO_ACK` is `False`. 
 
 ## Issue
 
