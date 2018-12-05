@@ -10,9 +10,9 @@ Test one connection and multiple channels with Pika. Related issue [Using one co
 
 ## Result
 
-* Test 100000 messages with `no_ack` is `True`. 
+* Test 80000 messages with `no_ack` is `True`. 
 * Test 80000 messages with `no_ack` is `False`. 
 
 ## Issue
 
-* Encounter `RuntimeError: can't start new thread` when processing 100000 messages with `no_ack` is `False`. But processing 80000 messages works fine.
+* Encounter `RuntimeError: can't start new thread` when processing 100000 messages occasionally. But processing 80000 messages works fine. It might be delivery is faster than publishing in this case. Thus, try it a few times with smaller number.
