@@ -4,7 +4,7 @@ import logging
 import functools
 from argparse import ArgumentParser
 
-NO_ACK = False
+NO_ACK = True
 
 def gen_msg(configs, count):
     conn = pika.BlockingConnection(configs)
@@ -60,8 +60,6 @@ class PikaManager(object):
             logging.exception(err) 
 
     def on_message(self, channel, method_frame, header_frame, body):
-        # logging.info(method_frame.delivery_tag)
-        # logging.info(body)
         logging.info("Get msg %s", body)
         t = threading.Thread(
             target = functools.partial(thread_task, self, method_frame, body))
@@ -86,12 +84,11 @@ class PikaManager(object):
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
         datefmt='%d-%m-%Y:%H:%M:%S',
-        level=logging.INFO)
+        level=logging.WARNING)
 
     parser = ArgumentParser()
     parser.add_argument("-c", "--count", help="publish message count", default=1000, type=int, dest="count")
     args = parser.parse_args()
-
     
     configs = (
         pika.ConnectionParameters(host='192.168.37.102'))
