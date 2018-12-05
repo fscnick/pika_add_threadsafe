@@ -10,8 +10,8 @@ Test one connection and multiple channels with Pika. Related issue [Using one co
 
 ## Result
 
-* Test 100000 messages with `NO_ACK` is `True`. 
-* Test 80000 messages with `NO_ACK` is `False`. 
+* Test 100000 messages with `no_ack` is `True`. 
+* Test 80000 messages with `no_ack` is `False`. 
 
 ## Issue
 
